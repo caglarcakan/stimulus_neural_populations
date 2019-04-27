@@ -31,7 +31,9 @@ conda env create -f nip27.yml
 ## Authors
 
 Caglar Cakan*, Klaus Obermayer
+
 Department of Software Engineering and Theoretical Computer Science, Technische Universität Berlin, Germany
+
 Bernstein Center for Computational Neuroscience Berlin, Germany
 
 *cakan@ni.tu-berlin.de
