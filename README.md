@@ -13,7 +13,7 @@ Within this dynamical landscape, external stimuli can cause state transitions, s
 
 ## Getting Started
 
-In this repository, you find the simulation engine for a) a fast and efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and b) the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous [Jupyter](https://jupyter.org/) notebooks, that will show you how to run simulations and experiments, save the data, and recreate the figures found in our article.
+In this repository, you find the simulation engine for **(a)** a fast and efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and **(b)** the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous [Jupyter](https://jupyter.org/) notebooks, that will show you how to run simulations and experiments, save the data, and recreate the figures found in our article.
 
 ### Prerequisites
 
