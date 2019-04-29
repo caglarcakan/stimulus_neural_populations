@@ -32,15 +32,15 @@ conda env create -f nip27.yml
 ### Overview of code repository
 
 Path  | Description
-:------------------ | :-------------
+:-------------------- | :------------
 &boxvr;&nbsp; data  | Simulation data are saved here.
 &boxvr;&nbsp; figures  | Figures are saved here.
 &boxvr;&nbsp; **models**  | Contains code for simulations.
 &boxv;&nbsp; &boxvr;&nbsp; **aln**  | Mean-field model.
-&boxv;&nbsp; &ensp;&ensp; &boxur;&nbsp; aln-precalc  | Precompute quantities for linear-nonlinear cascade (adapted from [Augustin 2017](https://github.com/neuromethods/fokker-planck-based-spike-rate-models)).
+&boxv;&nbsp; &ensp;&ensp; &boxur;&nbsp; aln-precalc  | Precompute quantities for linear-nonlinear cascade.
 &boxv;&nbsp; &boxvr;&nbsp; **brian2**  | Brian2 network model.
 &boxv;&nbsp; &boxur;&nbsp; utils  | Utility functions.
-&boxv;&nbsp;&ensp;&ensp;  &boxvr;&nbsp; aEIF...py  | Compute equivalent electric field strengths (Aspart 2016 et al. DOI:10.1371/journal.pcbi.1005206).
+&boxv;&nbsp;&ensp;&ensp;  &boxvr;&nbsp; aEIF...py  | Compute equivalent electric field strengths.
 &boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; fitparams.py  | Parameters for points of interest.
 &boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; functions.py  | Helper function for data analysis.
 &boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; paths.py  | Default paths for data storage (**edit this to your needs**).
