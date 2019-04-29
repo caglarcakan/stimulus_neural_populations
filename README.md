@@ -40,12 +40,12 @@ Path  | Description
 &boxv;&nbsp; &ensp;&ensp; &boxur;&nbsp; aln-precalc  | Precompute quantities for linear-nonlinear cascade.
 &boxv;&nbsp; &boxvr;&nbsp; **brian2**  | Brian2 network model.
 &boxv;&nbsp; &boxur;&nbsp; utils  | Utility functions.
-&boxv;&nbsp;&ensp;&ensp;  &boxvr;&nbsp; aEIF...py  | Compute equivalent electric field strengths.
-&boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; fitparams.py  | Parameters for points of interest.
-&boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; functions.py  | Helper function for data analysis.
-&boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; paths.py  | Default paths for data storage (**edit this to your needs**).
-&boxv;&nbsp;&ensp;&ensp; &boxvr;&nbsp; pypet....py  | Helper file for parameter exploration with pypet.
-&boxv;&nbsp;&ensp;&ensp; &boxur;&nbsp; runModels.py  | Wrapper for running models easily.
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp;  &boxvr;&nbsp; aEIF...py  | Compute equivalent electric field strengths.
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; fitparams.py  | Parameters for points of interest.
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; functions.py  | Helper function for data analysis.
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; paths.py  | Default paths for data storage (**edit this to your needs**).
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; pypet....py  | Helper file for parameter exploration with pypet.
+&boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxur;&nbsp; runModels.py  | Wrapper for running models easily.
 &boxur;&nbsp; **notebooks**  | Contains code for reproduction of figures in the article.
 &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; figure2  | Bifurcation diagrams.
 &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; figure3  | Stacked bifurcation diagrams with changing adaptation values.
