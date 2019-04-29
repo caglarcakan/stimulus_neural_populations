@@ -33,10 +33,12 @@ conda env create -f nip27.yml
 
 Path  | Description
 :------------- | :-------------
-&boxvr;&nbsp; models  | Contains code for simulations.
-&boxv;&nbsp; &boxvr;&nbsp; aln  | Mean-field model.
+&boxvr;&nbsp; data  | Simulation data are saved here.
+&boxvr;&nbsp; figures  | Figures are saved here.
+&boxvr;&nbsp; **models**  | Contains code for simulations.
+&boxv;&nbsp; &boxvr;&nbsp; **aln**  | Mean-field model.
 &boxv;&nbsp; &ensp;&ensp; &boxur;&nbsp; aln-precalc  | Precompute quantities for linear-nonlinear cascade (adapted from [Augustin 2017](https://github.com/neuromethods/fokker-planck-based-spike-rate-models)).
-&boxv;&nbsp; &boxvr;&nbsp; brian2  | Brian2 network model.
+&boxv;&nbsp; &boxvr;&nbsp; **brian2**  | Brian2 network model.
 &boxv;&nbsp; &boxur;&nbsp; utils  | Utility functions.
 &boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; aEIF_extended.py  | Compute equivalent electric field strengths (Aspart 2016 et al. DOI:10.1371/journal.pcbi.1005206).
 &boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; fitparams.py  | Parameters for points of interest.
@@ -44,7 +46,7 @@ Path  | Description
 &boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; paths.py  | Default paths for data storage (**edit this to your needs**).
 &boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; pypet_parameters.py  | Helper file for parameter exploration with pypet.
 &boxv;&nbsp;&ensp;&ensp; &ensp;&ensp; &boxur;&nbsp; runModels.py  | Wrapper for running models easily.
-&boxur;&nbsp; notebooks  | Contains code for reproduction of figures in the article.
+&boxur;&nbsp; **notebooks**  | Contains code for reproduction of figures in the article.
 &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; figure2  | Bifurcation diagrams.
 &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; figure3  | Stacked bifurcation diagrams with changing adaptation values.
 &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; figure4  | Example traces for electrical stimulation.
