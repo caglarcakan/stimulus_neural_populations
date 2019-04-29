@@ -1,14 +1,6 @@
-import sys
-#sys.path.append("../aln/")
-import warnings
-
-#import h5py
-import scipy
+import scipy.signal
 import numpy as np
-#import matplotlib.pyplot as plt
-#import defaultParameters as dp
-#import timeIntegration as ti
-#from matplotlib.colors import LogNorm
+
 
 def analyse_run(measure = 'domfr', result = [], dt = 0.1):
     '''
@@ -32,6 +24,7 @@ def analyse_run(measure = 'domfr', result = [], dt = 0.1):
     
         
     if measure.startswith('domfr_power'):
+        # returns power of dominant frequency
         if np.any((rate > 0)):
             spectrum_windowsize =  0.5 # in seconds 
             f, Pxx_spec = scipy.signal.welch(
@@ -42,12 +35,11 @@ def analyse_run(measure = 'domfr', result = [], dt = 0.1):
             scaling='spectrum')
             f = f[f < 70]
             Pxx_spec = Pxx_spec[0:len(f)]
-            #domfr = f[Pxx_spec.argmax()] if max(Pxx_spec) > 1 else 0
-            #print("domfr: {} max_spec: {}".format(domfr, max(Pxx_spec)))
             return np.max(Pxx_spec)
         else: 
             return 0.0
     elif measure.startswith('domfr'):
+        # returns dominant frequency
         if np.any((rate > 0)):
             spectrum_windowsize =  0.5 # in seconds 
             f, Pxx_spec = scipy.signal.welch(
@@ -59,7 +51,6 @@ def analyse_run(measure = 'domfr', result = [], dt = 0.1):
             f = f[f < 70]
             Pxx_spec = Pxx_spec[0:len(f)]
             domfr = f[Pxx_spec.argmax()] if max(Pxx_spec) > 1 else 0
-            #print("domfr: {} max_spec: {}".format(domfr, max(Pxx_spec)))
             return domfr
         else: 
             return 0.0
@@ -89,20 +80,3 @@ def analyse_run(measure = 'domfr', result = [], dt = 0.1):
             Pxx_spec = Pxx_spec[0:len(f)]
             Pxx_spec /= np.max(Pxx_spec)
             return f, Pxx_spec
-
-    elif measure.startswith('amplitudes'):
-        a = rate[t>1000]
-        
-        these_maxima = np.r_[True, a[1:] > a[:-1]] & np.r_[a[:-1] > a[1:], True]
-        these_maxima = these_maxima[1:-1] # cut first and last peak because theyre not peaks
-        these_minima = np.r_[True, a[1:] < a[:-1]] & np.r_[a[:-1] < a[1:], True]
-        these_minima = these_minima[1:-1] # cut first and last peak because theyre not peaks
-
-        a = a[1:-1]
-        #return these_maxima, these_minima
-        return a[these_maxima], a[these_minima]
-
-
-
-
-
