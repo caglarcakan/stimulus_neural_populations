@@ -32,7 +32,7 @@ conda env create -f nip27.yml
 ### Overview of code repository
 
 Path  | Description
-:------------- | :-------------
+:------------------ | :-------------
 &boxvr;&nbsp; data  | Simulation data are saved here.
 &boxvr;&nbsp; figures  | Figures are saved here.
 &boxvr;&nbsp; **models**  | Contains code for simulations.
@@ -63,12 +63,29 @@ Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic ov
 
 ### Bifurcation diagrams
 
-![Schematic of network model](resources/figure2.jpg)
+![Bifurcation diagrams](resources/figure2.jpg)
+
+**Bifurcation diagrams and time series.**
+		Bifurcation diagrams a-d depict the state space of the E-I system in terms of the mean external input currents to both subpopulations E and I.
+		**(a)** Bifurcation diagram of mean-field model without adaptation with *up* and *down-states*, a bistable region *bi* (green dashed contour) and an oscillatory region LC<sub>EI</sub> (white solid contour). 
+		**(b)** Diagram of the corresponding AdEx network. 
+		**(c)** Mean-field model with somatic adaptation. The bistable region is replaced by a slow oscillatory region LC<sub>aE</sub>.
+		**(d)** Diagram of the corresponding AdEx network.
+		The color in panels a - d indicates the maximum population rate of the excitatory population (clipped at 80 Hz). 
+		**(e)** Example time series of the population rates of excitatory (red) and inhibitory (blue) populations at point A2 (top row) which is located in the fast excitatory-inhibitory limit cycle LC<sub>EI</sub>, and at point B3 (bottom row) which is located in the slow limit cycle LC<sub>aE</sub>.
+		**(f)** Time series at corresponding points for the AdEx network.
 
 ### Stimulation experiments
 
-![Schematic of network model](resources/figure4.jpg)
+![Stimulation experiments](resources/figure4.jpg)
 
+**Population response to time-varying input current is state-dependent.**
+		Population rates of the excitatory population (black) with an additional external electrical stimulus (red) applied to the excitatory population.
+		**(a, b)** A DC step input with amplitude 60 pA (equivalent E-field amplitude: 6.6 V/m) pushes the system from the low-activity fixed point into the fast limit cycle LC<sub>EI</sub>.
+		**(c, d)** A step input with amplitude 40 pA (4.4 V/m) pushes the system from LC<sub>EI</sub> into the *up-state*.
+		**(e, f)** In the multistable region \textit{bi}, a step input with amplitude 100 pA (11.0 V/m) pushes the system from the *down-state* into the *up-state* and back.
+		**(g ,h)** Inside the slow oscillatory region LC<sub>aE</sub>, an oscillating input current with amplitude $40$ pA and a (frequency-matched) frequency of 3 Hz phase-locks the ongoing oscillation. 
+		**(i, j)** A slow 4 Hz oscillatory input with amplitude 40 pA drives oscillations if the system is close to the oscillatory region LC<sub>aE</sub>.
 
 ## Built With
 
