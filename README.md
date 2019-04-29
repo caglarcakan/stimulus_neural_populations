@@ -13,21 +13,28 @@ Within this dynamical landscape, external stimuli can cause state transitions, s
 
 ## Getting Started
 
-In this repository, you find the simulation engine for **(a)** a fast and efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and **(b)** the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous [Jupyter](https://jupyter.org/) notebooks, that will show you how to run simulations and experiments, save the data, and recreate the figures found in our article.
+In this repository, you find the simulation engine for **(a)** a fast and efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and **(b)** the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous notebooks to replicate our result and plot them figure by figure. The code within these notebooks runs the simulations and stimulation experiments, saves the data, performs data analysis and plots the results.
 
 ### Prerequisites
 
-Please install [anaconda](https://www.anaconda.com/distribution/) for python 2.7 on your computer before you clone this repository.
+Please install [anaconda](https://www.anaconda.com/distribution/) for python 2.7 on your computer before you clone this repository. Using conda, you can install the python environment which we have provided here (see Installaltion section). This will ensure that you will be able to run all the code files in this repository. Anaconda will also come with [Jupter Notebook](https://github.com/jupyter/notebook) to run and display the notebooks provided here.
 
-### Installing
+### Installation
 
 To make it easier to run the code in this project and reproduce our findings, we have created an anaconda environment. This helps you to get all the correct versions of the libraries we have used as well as python 2.7. 
 
-The following command creates the anaconda environment on your computer:
+The following command creates the anaconda environment on your computer (this can take a while):
 
 ```
-conda env create -f nip27.yml
+conda env create -f environment.yml
 ```
+
+Now activate the environment:
+
+```
+conda activate stimulus
+```
+
 
 ### Overview of code repository
 
@@ -92,6 +99,8 @@ Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic ov
 * [Brian2](https://github.com/brian-team/brian2) - A clock-driven simulator for spiking neural networks
 * [pypet](https://github.com/SmokinCaterpillar/pypet) - Python parameter exploration toolbox
 * [numpy](https://github.com/numpy/numpy) - The fundamental package for scientific computing with Python.
+* [numba](https://github.com/numba/numba) - NumPy aware dynamic Python compiler using LLVM
+* [Jupyter](https://github.com/jupyter/notebook) - Jupyter Interactive Notebook
 
 ## Authors
 
@@ -108,6 +117,6 @@ Bernstein Center for Computational Neuroscience Berlin, Germany
 This project is licensed under the BSD 2 - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-
+* This work was supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) with the project number 327654276 (SFB 1315) and the Research Training Group GRK1589/2.
 * A model comparison of the mean-field population model can be found [in this repository](https://github.com/neuromethods/fokker-planck-based-spike-rate-models) based on the article by Augustin, Ladenbauer, Baumann, Obermayer, *Low-dimensional spike rate models derived from networks of adaptive integrate-and-fire neurons: comparison and implementation*, PLOS Computational Biology 2017. The code for precomputing the filter components of the linear-nonlinear cascade is based on this project as well.
 * Aspart et al. layed out the work for converting the electric current amplitudes into extracellular field strengths in *Extending Integrate-and-Fire Model Neurons to Account for the Effects of Weak Electric Fields and Input Filtering Mediated by the Dendrite.* PLoS Computational Biology, 2016. 
