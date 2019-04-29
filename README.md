@@ -51,7 +51,7 @@ You can now start the Jupyter Notebook server to view and run the notebooks in t
 jupyter notebook
 ```
 
-### Overview of code repository
+### Overview of the repository
 
 Path  | Description
 :-------------------- | :------------
@@ -80,7 +80,7 @@ Path  | Description
 
 Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic overview on how to load and run the models.
 
-## Some figures
+## Selected figures
 
 
 ### Bifurcation diagrams
@@ -109,15 +109,17 @@ Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic ov
 		**(g ,h)** Inside the slow oscillatory region LC<sub>aE</sub>, an oscillating input current with amplitude $40$ pA and a (frequency-matched) frequency of 3 Hz phase-locks the ongoing oscillation. 
 		**(i, j)** A slow 4 Hz oscillatory input with amplitude 40 pA drives oscillations if the system is close to the oscillatory region LC<sub>aE</sub>.
 
-## Built With
+## Information
+
+### Built With
 
 * [Brian2](https://github.com/brian-team/brian2) - A clock-driven simulator for spiking neural networks
 * [pypet](https://github.com/SmokinCaterpillar/pypet) - Python parameter exploration toolbox
-* [numpy](https://github.com/numpy/numpy) - The fundamental package for scientific computing with Python.
+* [numpy](https://github.com/numpy/numpy) - The fundamental package for scientific computing with Python
 * [numba](https://github.com/numba/numba) - NumPy aware dynamic Python compiler using LLVM
 * [Jupyter](https://github.com/jupyter/notebook) - Jupyter Interactive Notebook
 
-## Authors
+### Authors
 
 Caglar Cakan*, Klaus Obermayer
 
@@ -127,7 +129,7 @@ Bernstein Center for Computational Neuroscience Berlin, Germany
 
 *cakan@ni.tu-berlin.de
 
-## License
+### License
 
 This project is licensed under the BSD 2 - see the [LICENSE](LICENSE) file for details.
 
