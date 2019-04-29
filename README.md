@@ -13,7 +13,10 @@ Within this dynamical landscape, external stimuli can cause state transitions, s
 
 ## Getting Started
 
-In this repository, you find the simulation engine for **(a)** a fast and efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and **(b)** the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous notebooks to replicate our result and plot them figure by figure. The code within these notebooks runs the simulations and stimulation experiments, saves the data, performs data analysis and plots the results.
+In this repository, you find the simulation engine for **(a)** an efficient mean-field mneural mass model of a large network of [AdEx neurons](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model) and **(b)** the corresponding network simulation of individual neurons implemented in [Brian2](https://github.com/brian-team/brian2). Furthermore, you will find numerous notebooks to replicate our result and plot them figure by figure. The code within these notebooks runs the simulations and stimulation experiments, saves the data, performs data analysis and plots the results.
+
+### Hardware requirements 
+The mean-field simulations are fast by nature and require almost no computational resources for single runs. Running the AdEx network using brian for 6 seconds with N=10000 neurons per population (20000 total) takes in the order of 10 minutes to run on a Intel i5 single core and uses 
 
 ### Prerequisites
 
@@ -50,6 +53,8 @@ You can now start the Jupyter Notebook server to view and run the notebooks in t
 ```
 jupyter notebook
 ```
+
+This should open Jupyter Notebook in your browser.
 
 ### Overview of the repository
 
