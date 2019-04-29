@@ -62,7 +62,9 @@ Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic ov
 ## Authors
 
 Caglar Cakan*, Klaus Obermayer
+
 Department of Software Engineering and Theoretical Computer Science, Technische Universität Berlin, Germany
+
 Bernstein Center for Computational Neuroscience Berlin, Germany
 
 *cakan@ni.tu-berlin.de

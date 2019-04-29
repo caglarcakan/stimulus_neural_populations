@@ -1,4 +1,4 @@
-name: nip27_working
+name: nip27
 channels:
   - brian-team
   - anaconda
@@ -295,5 +295,3 @@ dependencies:
     - python-dateutil==2.8.0
     - pytz==2018.9
     - scipy==1.2.1
-prefix: /home/vertaljon/anaconda3/envs/nip27_working
-
