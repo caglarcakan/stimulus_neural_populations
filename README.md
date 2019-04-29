@@ -21,13 +21,13 @@ Please install [anaconda](https://www.anaconda.com/distribution/) for python 2.7
 
 ### Installation
 
-The first step is cloning this repository to your computer by either using
+If you have a git client installed on your computer, the first step is cloning this repository to your computer:
 
 ```
 git clone https://github.com/caglarcakan/stimulus_neural_populations.git
 ```
 
-in the command line or downloading the repository as a zip file from github. After cloning or downloading the repository, please navigate in your terminal to the directory which contains the project.
+Alternatively, you can download the repository as a zip file from github [here](https://github.com/caglarcakan/stimulus_neural_populations/archive/master.zip). After cloning or downloading the repository, please navigate in your terminal to the directory which contains the project.
 
 #### Anaconda environment
 
