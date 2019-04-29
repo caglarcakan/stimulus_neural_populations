@@ -21,7 +21,17 @@ Please install [anaconda](https://www.anaconda.com/distribution/) for python 2.7
 
 ### Installation
 
-To make it easier to run the code in this project and reproduce our findings, we have created an anaconda environment. This helps you to get all the correct versions of the libraries we have used as well as python 2.7. 
+The first step is cloning this repository to your computer by either using
+
+```
+git clone https://github.com/caglarcakan/stimulus_neural_populations.git
+```
+
+in the command line or downloading the repository as a zip file from github. After cloning or downloading the repository, please navigate in your terminal to the directory which contains the project.
+
+#### Anaconda environment
+
+To make it easier to run the code in this project and reproduce our findings, we have created an anaconda environment. This helps you to get all the correct versions of the libraries we have used as well as python 2.7. Please make sure that you have installed anaconda successfully.
 
 The following command creates the anaconda environment on your computer (this can take a while):
 
@@ -35,6 +45,11 @@ Now activate the environment:
 conda activate stimulus
 ```
 
+You can now start the Jupyter Notebook server to view and run the notebooks in this repository using the command:
+
+```
+jupyter notebook
+```
 
 ### Overview of code repository
 
