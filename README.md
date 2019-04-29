@@ -1,12 +1,15 @@
 # State-dependent effects of electrical stimulation on populations of excitatory and inhibitory neurons
 
+### Schematic of neural mass model
+
 ![Schematic of network model](resources/figure1.jpg)
 
-###Abstract
+### Abstract
 
 Electrical stimulation of neural populations is a key tool for understanding neural dynamics and developing treatments. To investigate the effects of external stimulation on a basic cortical motif, we analyse the dynamical properties of an efficient mean-field neural mass model of excitatory and inhibitory adaptive exponential integrate-and-fire (AdEx) neurons and validate the results using detailed network simulations. 
 The state space of the mean-field model and of the detailed network are closely related. They reveal asynchronous up and down-states, bistable regions, and oscillatory regions corresponding to fast excitation-inhibition and slow excitation-adaptation feedback loops. 
 Within this dynamical landscape, external stimuli can cause state transitions, such as turning on and off oscillations. Oscillatory input can frequency-entrain and phase-lock endogenous oscillations. The effects of external stimulation are well-predicted by the mean-field model, further underpinning the utility of low-dimensional neural mass models. 	
+
 
 ## Getting Started
 
@@ -52,6 +55,18 @@ Path  | Description
 ## Tutorial
 
 Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic overview on how to load and run the models.
+
+## Some figures
+
+
+### Bifurcation diagrams
+
+![Schematic of network model](resources/figure2.jpg)
+
+### Stimulation experiments
+
+![Schematic of network model](resources/figure4.jpg)
+
 
 ## Built With
 
