@@ -105,7 +105,7 @@ Nothing here yet. Please be kindly refered to `notebooks/figure2` for a basic ov
 		Population rates of the excitatory population (black) with an additional external electrical stimulus (red) applied to the excitatory population.
 		**(a, b)** A DC step input with amplitude 60 pA (equivalent E-field amplitude: 6.6 V/m) pushes the system from the low-activity fixed point into the fast limit cycle LC<sub>EI</sub>.
 		**(c, d)** A step input with amplitude 40 pA (4.4 V/m) pushes the system from LC<sub>EI</sub> into the *up-state*.
-		**(e, f)** In the multistable region \textit{bi}, a step input with amplitude 100 pA (11.0 V/m) pushes the system from the *down-state* into the *up-state* and back.
+		**(e, f)** In the multistable region *bi*, a step input with amplitude 100 pA (11.0 V/m) pushes the system from the *down-state* into the *up-state* and back.
 		**(g ,h)** Inside the slow oscillatory region LC<sub>aE</sub>, an oscillating input current with amplitude $40$ pA and a (frequency-matched) frequency of 3 Hz phase-locks the ongoing oscillation. 
 		**(i, j)** A slow 4 Hz oscillatory input with amplitude 40 pA drives oscillations if the system is close to the oscillatory region LC<sub>aE</sub>.
 
