@@ -1,43 +1,6 @@
 import numpy as np
 import numba
-import defaultParameters as lp
-
-def adjust_shape(original, target):
-    """
-    Tiles and then cuts an array (or list or float) such that
-    it has the same shape as target at the end.
-    This is used to make sure that any input parameter like external current has 
-    the same shape as the rate array.
-    """
-
-    # make an ext_exc_current ARRAY from a LIST or INT
-    if not hasattr(original, "__len__"): 
-        original = [original]
-    original = np.array(original)
-
-    # repeat original in y until larger (or same size) as target
-
-    # ------- y
-    # either (x,) shape or (y,x) shape
-    if ( (len(original.shape) == 1) and original.shape[0]>1 ):
-        rep_y = target.shape[0]
-    elif (target.shape[0] > original.shape[0]): 
-        rep_y = target.shape[0]/original.shape[0] + 1
-    else: 
-        rep_y = 1
-
-    original = np.tile(original,(rep_y,1))
-
-    # ------- x
-
-    if (target.shape[1] > original.shape[1]): rep_x = target.shape[1]/original.shape[1] + 1
-    else: rep_x = 1    
-    original = np.tile(original,(1,rep_x))
-
-    # cut
-    original = original[:target.shape[0], :target.shape[1]]
-
-    return original
+import defaultParameters as dp
 
 def timeIntegration(params):
 
@@ -85,7 +48,7 @@ def timeIntegration(params):
     if N == 1:
         Dmat = np.ones((N,N))*params['de']
     else:
-        Dmat = lp.computeDelayMatrix(lengthMat,signalV) # Interareal connection delays, Dmat(i,j) Connnection from jth node to ith (ms)
+        Dmat = dp.computeDelayMatrix(lengthMat,signalV) # Interareal connection delays, Dmat(i,j) Connnection from jth node to ith (ms)
         Dmat[np.eye(len(Dmat))==1] = np.ones(len(Dmat))*params['de']
     
         
@@ -411,8 +374,8 @@ def timeIntegration_njit_elementwise(dt, duration,
             if not distr_delay:
                 # interareal coupling
                 for l in range(N):
-                    rd_exc[l,no] = rates_exc[no,i-Dmat_ndt[l,no]] # rd_exc(i,j) delayed input rate from population j to population i  
-                rd_inh[no] = rates_inh[no,i-ndt_di]   # Warning: this is a vector and not a matrix as rd_exc
+                    rd_exc[l,no] = rates_exc[no,i-Dmat_ndt[l,no]-1] # rd_exc(i,j) delayed input rate from population j to population i  
+                rd_inh[no] = rates_inh[no,i-ndt_di-1]   # Warning: this is a vector and not a matrix as rd_exc
         
             mue = Jee_max*seem[no] + Jei_max*seim[no] + mue_ext[no] + ext_exc_current[no,i]
             mui = Jie_max*siem[no] + Jii_max*siim[no] + mui_ext[no] + ext_inh_current[no,i]
@@ -468,7 +431,7 @@ def timeIntegration_njit_elementwise(dt, duration,
                                                         Irange, dI, mufe[no]-IA[no]/C)
             xid1, yid1 = int(xid1), int(yid1)
 
-            rates_exc[no,i+1] = interpolate_values(precalc_r, xid1, yid1, dxid, dyid)
+            rates_exc[no,i] = interpolate_values(precalc_r, xid1, yid1, dxid, dyid)
             Vmean_exc = interpolate_values(precalc_V, xid1, yid1, dxid, dyid)
             tau_exc = interpolate_values(precalc_tau_mu, xid1, yid1, dxid, dyid)
             tau_sigmae_eff = interpolate_values(precalc_tau_sigma, xid1, yid1, dxid, dyid)
@@ -479,7 +442,7 @@ def timeIntegration_njit_elementwise(dt, duration,
                                                         Irange, dI, mufi[no])
             xid1, yid1 = int(xid1), int(yid1)
 
-            rates_inh[no,i+1] = interpolate_values(precalc_r, xid1, yid1, dxid, dyid)
+            rates_inh[no,i] = interpolate_values(precalc_r, xid1, yid1, dxid, dyid)
             Vmean_inh = interpolate_values(precalc_V, xid1, yid1, dxid, dyid)
             tau_inh = interpolate_values(precalc_tau_mu, xid1, yid1, dxid, dyid)
             tau_sigmai_eff = interpolate_values(precalc_tau_sigma, xid1, yid1, dxid, dyid)
@@ -588,13 +551,13 @@ def timeIntegration_njit_elementwise(dt, duration,
             mui_ext[no] = mui_ext[no] + (mui_ext_mean-mui_ext[no])*dt/tau_ou  \
                                       + sigma_ou*sqrt_dt*noise_inh[no]  #mV/ms
 
-        #print r_ext_chunk[:,i]                    
-    #print r_ext_chunk.shape
-    #print mufe[0], sigmae_f
+            return_chunks = (mufe_chunk, mufi_chunk, IA_chunk, seem_chunk, siim_chunk, seim_chunk, siem_chunk, seev_chunk, siiv_chunk, seiv_chunk, siev_chunk, mue_ext_chunk, mui_ext_chunk, tau_exc_chunk, tau_inh_chunk, sigmae_chunk, sigmai_chunk)
+            return_rhs = (mufe_rhs, mufi_rhs, IA_rhs, seem_rhs, siim_rhs, seim_rhs, siem_rhs, seev_rhs, siiv_rhs, seiv_rhs, siev_rhs, rd_exc_rhs, rd_inh_rhs, sigmae_f_rhs, sigmai_f_rhs)
+    
     return rates_exc, rates_inh, t, mufe, mufi, IA, seem, seim, siem, siim, \
                 seev, seiv, siev, siiv, \
-                (mufe_chunk, mufi_chunk, IA_chunk, seem_chunk, siim_chunk, seim_chunk, siem_chunk, seev_chunk, siiv_chunk, seiv_chunk, siev_chunk, mue_ext_chunk, mui_ext_chunk, tau_exc_chunk, tau_inh_chunk, sigmae_chunk, sigmai_chunk),\
-                (mufe_rhs, mufi_rhs, IA_rhs, seem_rhs, siim_rhs, seim_rhs, siem_rhs, seev_rhs, siiv_rhs, seiv_rhs, siev_rhs, rd_exc_rhs, rd_inh_rhs, sigmae_f_rhs, sigmai_f_rhs)
+                return_chunks,\
+                return_rhs
 
 @numba.njit(locals = {'idxX': numba.int64, 'idxY':numba.int64})
 def interpolate_values(table, xid1, yid1, dxid, dyid):
@@ -647,7 +610,42 @@ def lookup_no_interp(x,dx,xi,y,dy,yi):
 
     return idxX,idxY
 
-## TODO: include fast_interp2_opt into timeIntegration!
+def adjust_shape(original, target):
+    """
+    Tiles and then cuts an array (or list or float) such that
+    it has the same shape as target at the end.
+    This is used to make sure that any input parameter like external current has 
+    the same shape as the rate array.
+    """
+
+    # make an ext_exc_current ARRAY from a LIST or INT
+    if not hasattr(original, "__len__"): 
+        original = [original]
+    original = np.array(original)
+
+    # repeat original in y until larger (or same size) as target
+
+    # ------- y
+    # either (x,) shape or (y,x) shape
+    if ( (len(original.shape) == 1) and original.shape[0]>1 ):
+        rep_y = target.shape[0]
+    elif (target.shape[0] > original.shape[0]): 
+        rep_y = int(target.shape[0]/original.shape[0]) + 1
+    else: 
+        rep_y = 1
+
+    original = np.tile(original,(rep_y,1))
+
+    # ------- x
+
+    if (target.shape[1] > original.shape[1]): rep_x = int(target.shape[1]/original.shape[1]) + 1
+    else: rep_x = 1    
+    original = np.tile(original,(1,rep_x))
+
+    # cut
+    original = original[:target.shape[0], :target.shape[1]]
+
+    return original
   
 @numba.njit(locals = {'xid1': numba.int64, 'yid1':numba.int64, 'dxid':numba.float64, 'dyid':numba.float64})    
 def fast_interp2_opt(x,dx,xi,y,dy,yi):
