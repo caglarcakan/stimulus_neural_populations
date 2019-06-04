@@ -1,5 +1,9 @@
 # State-dependent effects of electrical stimulation on populations of excitatory and inhibitory neurons
 
+### [Find the paper on arXiv](https://arxiv.org/abs/1906.00676)
+
+--
+
 ### Schematic of neural mass model
 
 ![Schematic of network model](resources/figure1.jpg)
