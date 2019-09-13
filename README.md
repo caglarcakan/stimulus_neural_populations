@@ -1,4 +1,4 @@
-# State-dependent effects of electrical stimulation on populations of excitatory and inhibitory neurons
+# Biophysically grounded mean-field models of neural populations under electrical stimulation
 
 ### [Find the paper on arXiv](https://arxiv.org/abs/1906.00676)
 
