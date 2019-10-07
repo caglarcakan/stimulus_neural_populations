@@ -1,4 +1,4 @@
-# State-dependent effects of electrical stimulation on populations of excitatory and inhibitory neurons
+# Biophysically grounded mean-field models of neural populations under electrical stimulation
 
 ### [Find the paper on arXiv](https://arxiv.org/abs/1906.00676)
 
@@ -22,7 +22,7 @@ The mean-field simulations are fast by nature and require almost no computationa
 
 ### Prerequisites
 
-Please install [anaconda](https://www.anaconda.com/distribution/) for python 2.7 on your computer before you clone this repository. Using conda, you can install the python environment which we have provided here (see Installaltion section). This will ensure that you will be able to run all the code files in this repository. Anaconda will also come with [Jupter Notebook](https://github.com/jupyter/notebook) to run and display the notebooks provided here.
+Please install [anaconda](https://www.anaconda.com/distribution/) on your computer before you clone this repository. Using conda, you can install the python environment which we have provided here (see Installaltion section). This will ensure that you will be able to run all the code files in this repository. Anaconda will also come with [Jupter Notebook](https://github.com/jupyter/notebook) to run and display the notebooks provided here.
 
 ### Installation
 
@@ -139,5 +139,5 @@ This project is licensed under BSD 2 - see the [LICENSE](LICENSE) file for detai
 
 ## Acknowledgments
 * This work was supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) with the project number 327654276 (SFB 1315) and the Research Training Group GRK1589/2.
-* A model comparison of the mean-field population model can be found [in this repository](https://github.com/neuromethods/fokker-planck-based-spike-rate-models) based on the article by Augustin, Ladenbauer, Baumann, Obermayer, *Low-dimensional spike rate models derived from networks of adaptive integrate-and-fire neurons: comparison and implementation*, PLOS Computational Biology 2017. The code for precomputing the filter components of the linear-nonlinear cascade is based on this project as well.
+* A model comparison of the mean-field population model can be found [in this repository](https://github.com/neuromethods/fokker-planck-based-spike-rate-models) based on the article by Augustin, Ladenbauer, Baumann, Obermayer, *Low-dimensional spike rate models derived from networks of adaptive integrate-and-fire neurons: comparison and implementation*, PLOS Computational Biology 2017. The code for precomputing the filter components of the linear-nonlinear cascade and the AdEx neuron simulation using brian2 is heavily based on this project as well.
 * Aspart et al. layed out the work for converting the electric current amplitudes into extracellular field strengths in *Extending Integrate-and-Fire Model Neurons to Account for the Effects of Weak Electric Fields and Input Filtering Mediated by the Dendrite.* PLoS Computational Biology, 2016. 
