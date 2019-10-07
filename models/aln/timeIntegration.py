@@ -174,7 +174,6 @@ def timeIntegration(params):
         Dmat_ndt = np.zeros((N,N)) # ATTENTION: this will also get rid of the INTRA-network delays (which is modelled as a E-E delay)        
     max_global_delay = np.max(Dmat_ndt)
     startind = int(np.max([max_global_delay, ndt_de, ndt_di])+1)
-
     #print("Startind: {}, len(t): {}, simulation steps: {}".format(startind, len(t), len(range(startind-1,len(t)))))
 
     mue_ext = mue_ext_mean*np.ones((N,))  # Mean external exc input (mV/ms)
@@ -188,8 +187,8 @@ def timeIntegration(params):
         # Reuse the firing rates computed in a precedent simulation
         rates_exc = np.zeros((N,len(t)))
         rates_inh = np.zeros((N,len(t)))
-        rates_exc[:,0:startind-1] = params['rates_exc_init'][:,-startind+1:]
-        rates_inh[:,0:startind-1] = params['rates_inh_init'][:,-startind+1:]
+        rates_exc[:,0:startind] = params['rates_exc_init'][:,-startind:]
+        rates_inh[:,0:startind] = params['rates_inh_init'][:,-startind:]
     if distr_delay:
         rd_exc = 0.01*np.ones((N,N))
         rd_inh = 0.01*np.ones(N)
@@ -206,8 +205,9 @@ def timeIntegration(params):
     # Save the noise in the rates array to save memory
     if RNGseed:
         np.random.seed(RNGseed)
-    rates_exc[:,startind-1:] = np.random.standard_normal( ( N, len ( range(startind-1,len(t) ) ) ) ) 
-    rates_inh[:,startind-1:] = np.random.standard_normal( ( N, len ( range(startind-1,len(t) ) ) ) ) 
+    rates_exc[:,startind:] = np.random.standard_normal( ( N, len ( range(startind,len(t) ) ) ) ) 
+    rates_inh[:,startind:] = np.random.standard_normal( ( N, len ( range(startind,len(t) ) ) ) ) 
+
     noise_exc = np.zeros((N,))
     noise_inh = np.zeros((N,))
     
@@ -358,13 +358,13 @@ def timeIntegration_njit_elementwise(dt, duration,
         
 
     ### integrate ODE system:
-    for i in range(startind-1,len(t)):
+    for i in range(startind,len(t)):
 
         # loop through all the nodes
         for no in range(N):        
         
         
-            # To save memory the noise are saved in the preallocated rates
+            # To save memory, noise is saved in the rates array
             noise_exc[no] = rates_exc[no,i]
             noise_inh[no] = rates_inh[no,i]
         
@@ -551,8 +551,9 @@ def timeIntegration_njit_elementwise(dt, duration,
             mui_ext[no] = mui_ext[no] + (mui_ext_mean-mui_ext[no])*dt/tau_ou  \
                                       + sigma_ou*sqrt_dt*noise_inh[no]  #mV/ms
 
-            return_chunks = (mufe_chunk, mufi_chunk, IA_chunk, seem_chunk, siim_chunk, seim_chunk, siem_chunk, seev_chunk, siiv_chunk, seiv_chunk, siev_chunk, mue_ext_chunk, mui_ext_chunk, tau_exc_chunk, tau_inh_chunk, sigmae_chunk, sigmai_chunk)
-            return_rhs = (mufe_rhs, mufi_rhs, IA_rhs, seem_rhs, siim_rhs, seim_rhs, siem_rhs, seev_rhs, siiv_rhs, seiv_rhs, siev_rhs, rd_exc_rhs, rd_inh_rhs, sigmae_f_rhs, sigmai_f_rhs)
+            # have to set this zero because of a memory leak in numba 0.43.1
+            return_chunks = 0#(mufe_chunk, mufi_chunk, IA_chunk, seem_chunk, siim_chunk, seim_chunk, siem_chunk, seev_chunk, siiv_chunk, seiv_chunk, siev_chunk, mue_ext_chunk, mui_ext_chunk, tau_exc_chunk, tau_inh_chunk, sigmae_chunk, sigmai_chunk)
+            return_rhs = 0#(mufe_rhs, mufi_rhs, IA_rhs, seem_rhs, siim_rhs, seim_rhs, siem_rhs, seev_rhs, siiv_rhs, seiv_rhs, siev_rhs, rd_exc_rhs, rd_inh_rhs, sigmae_f_rhs, sigmai_f_rhs)
     
     return rates_exc, rates_inh, t, mufe, mufi, IA, seem, seim, siem, siim, \
                 seev, seiv, siev, siiv, \
