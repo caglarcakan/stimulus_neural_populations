@@ -1,5 +1,7 @@
 # Biophysically grounded mean-field models of neural populations under electrical stimulation
 
+A framework for simulating mean-field neural mass models of spiking neurons, comparing them to large network simulations, and predicting electrical stimulation responses of neural populations. 
+
 ### [Find the paper on arXiv](https://arxiv.org/abs/1906.00676)
 
 ### Schematic of neural mass model
