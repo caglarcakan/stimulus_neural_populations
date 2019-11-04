@@ -187,8 +187,8 @@ def timeIntegration(params):
         # Reuse the firing rates computed in a precedent simulation
         rates_exc = np.zeros((N,len(t)))
         rates_inh = np.zeros((N,len(t)))
-        rates_exc[:,0:startind] = params['rates_exc_init'][:,-startind:]
-        rates_inh[:,0:startind] = params['rates_inh_init'][:,-startind:]
+        rates_exc[:,0:startind-1] = params['rates_exc_init'][:,-startind:]
+        rates_inh[:,0:startind-1] = params['rates_inh_init'][:,-startind:]
     if distr_delay:
         rd_exc = 0.01*np.ones((N,N))
         rd_inh = 0.01*np.ones(N)
