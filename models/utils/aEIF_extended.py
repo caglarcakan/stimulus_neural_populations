@@ -58,7 +58,7 @@ class IFModel:
         # Firing parameters 
         self.V_cut      = -40e-3    # Voltage cut for the firing (V)
         self.T_ref      = 1.5e-3    # Refractory time (s)
-        self.V_reset    = -65e-3    # Reset membrane potential (V)
+        self.V_reset    = -70e-3    # Reset membrane potential (V)
         
         self.EL     = -65e-3    # V
 
@@ -264,7 +264,7 @@ class EIFModel(IFModel):
     def __init__(self):
         IFModel.__init__(self)
 
-        self.deltaT = 1e-3      # V
+        self.deltaT = 1.5e-3      # V
         self.VT     = -50e-3    # V
         self.EL     = -65e-3    # V
         self.factorExp = 1
@@ -412,7 +412,7 @@ class aEIFModel(EIFModel):
         # Firing parameters 
         self.V_cut      = -40e-3    # Voltage cut for the firing (V)
         self.T_ref      = 1.5e-3    # Refractory time (s)
-        self.V_reset    = -65e-3    # Reset membrane potential (V)
+        self.V_reset    = -70e-3    # Reset membrane potential (V)
 
     def runSim(self,duration=500e-3,E_onset=100e-3,E_amp=1,E_freq=10,E_n=1000,V0=-65e-3,dt=0.1e-3,I_ext=None,I_amp=0,I_freq=0,WOutput=None): 
         '''
