@@ -246,7 +246,7 @@ def construct_stimulus(stim='dc', duration=6000, dt=0.1, stim_amp=0.2, stim_freq
     '''
     def sinus_stim(f=1, amplitude=0.2, positive=0, phase=0, cycles=1, t_pause=0):
         x = np.linspace(np.pi, -np.pi, 1000 / dt / f)
-        sinus_function = np.hstack(((np.sin(x + phase) + positive) / 2, np.tile(0, t_pause)))
+        sinus_function = np.hstack(((np.sin(x + phase) + positive), np.tile(0, t_pause)))
         sinus_function *= amplitude
         return np.tile(sinus_function, cycles)
 
