@@ -176,6 +176,7 @@ def set_network_params(params, stimulus = []):
 
     net_params = get_params()
     net_params['runtime'] = params['duration']
+    net_params['seed'] = params['seed']
 
     net_params['net_dt'] = params['dt']
     net_params['net_record_dt'] = params['dt']

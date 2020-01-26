@@ -23,7 +23,7 @@ def runModels(traj=0, manual_params=None):
     If traj==0, parameters are loaded from global variable "params", make
     sure to set them before calling this function.
     """
-    np.random.seed() 
+    
     if (traj != 0):
         params = traj.parameters.f_to_dict(short_names=True, fast_access=True) 
     elif (manual_params != None):
@@ -31,7 +31,8 @@ def runModels(traj=0, manual_params=None):
     else:
         warnings.warn("params can't be None!")
         return
-
+    
+    np.random.seed(params['seed']) 
     model = params['model']
     point = params['load_point']
     if model == 'aln':

@@ -1,0 +1,5 @@
+Here you can find the precomputed quantities of AdEx neurons that define the input-output current-to-rate transfer funciton of the populations, the lookup tables for the adaptive timescales and the membrane potentials.
+
+These quantities are all necessary in order to run the aln mean-field model.
+
+In order to compute your own transfer functions for other AdEx neuron parameters, you have to change the parameters in `precompute_quantities/params.py' and adjust the single neuron parameters in `models/aln/defaultParameters.py` as well as in `models/brian2/loadparams.py' according to your new parameters.

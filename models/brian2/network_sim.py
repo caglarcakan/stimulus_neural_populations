@@ -81,7 +81,7 @@ def network_sim(signal, params, rec = False, standalone_dir = cpp_default_dir):
     gc.collect()
 
     # seed our random number generator!  necessary on the unix server
-    np.random.seed()
+    np.random.seed(params['seed'])
 
     mu_e_ext_array = signal[0][0] # [mV/ms]
     sigma_e_ext_array = signal[0][1] # [mV/sqrt(ms)]
