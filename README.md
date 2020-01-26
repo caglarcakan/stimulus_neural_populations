@@ -2,7 +2,9 @@
 
 A framework for simulating mean-field neural mass models of spiking neurons, comparing them to large network simulations, and predicting electrical stimulation responses of neural populations. 
 
-### [Find the paper on arXiv](https://arxiv.org/abs/1906.00676)
+Find the paper on [**arXiv**](https://arxiv.org/abs/1906.00676).
+
+[**Neurolib**](https://arxiv.org/abs/1906.00676) is a modern computational neuroscience library for python that implements this model and more! Check out the github page for examples.
 
 ### Schematic of neural mass model
 
